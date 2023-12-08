@@ -1,17 +1,16 @@
-import { ReactNode } from "react";
+import { FC } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { SelectedPage } from "./types";
 
-type Props = {
-  children: ReactNode;
-  setSelectedPage: (value: SelectedPage) => void;
-};
+import { ActionButtonPropsType, SelectedPage } from "./types";
 
-const ActionButton = ({ children, setSelectedPage }: Props) => {
+const ActionButton: FC<ActionButtonPropsType> = ({ children, selectPage }) => {
+  const selectPageHandler = () => {
+    selectPage(SelectedPage.ContactUs);
+  };
   return (
     <AnchorLink
       className="hover:text--white rounded-md bg-secondary-500 px-10 py-2 hover:bg-primary-500"
-      onClick={() => setSelectedPage(SelectedPage.ContactUs)}
+      onClick={selectPageHandler}
       href={`#${SelectedPage.ContactUs}`}
     >
       {children}

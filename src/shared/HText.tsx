@@ -1,10 +1,7 @@
-import { ReactNode } from "react";
+import { FC } from "react";
+import { HTextPropsType } from "./types";
 
-type Props = {
-  children: ReactNode;
-};
-
-const HText = ({ children }: Props) => {
+const HText: FC<HTextPropsType> = ({ children }) => {
   return (
     <h1 className="basis-3/5 font-montserrat text-3xl font-bold">{children}</h1>
   );

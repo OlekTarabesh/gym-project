@@ -1,8 +1,10 @@
+import { ReactNode } from "react";
+
 export enum SelectedPage {
   Home = "home",
   Benefits = "benefits",
-  OurClasses = "Our Classes",
-  ContactUs = "Contact Us",
+  Classes = "ourclasses",
+  ContactUs = "contactus",
 }
 
 export interface BenefitTypes {
@@ -16,3 +18,12 @@ export interface ClassTypes {
   description?: string;
   image: string;
 }
+
+export type ActionButtonPropsType = {
+  children: ReactNode;
+  selectPage: (value: SelectedPage) => void;
+};
+
+export type HTextPropsType = {
+  children: ReactNode;
+};

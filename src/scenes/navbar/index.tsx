@@ -1,22 +1,36 @@
-import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import Logo from "@/assets/Logo.png";
+import { FC, useState } from "react";
+
 import Link from "./Link";
-import { SelectedPage } from "@/shared/types";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import Sidebar from "./Sidebar";
+
+import Logo from "@/assets/Logo.png";
 import ActionButton from "@/shared/ActionButton";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import Burger from "./Burger";
 
-type Props = {
-  isTopOfPage: boolean;
-  selectedPage: SelectedPage;
-  setSelectedPage: (value: SelectedPage) => void;
-};
+import { navDB } from "./navDB";
+import { NavbarPropsType } from "./types";
+import { SelectedPage } from "@/shared/types";
 
-const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
+const Navbar: FC<NavbarPropsType> = ({
+  isTopOfPage,
+  selectedPage,
+  selectPageHandler,
+}) => {
   const [isMenueToggled, setIsMenueToggled] = useState<boolean>(false);
-  const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+
+  const flexBetween = "flex items-center justify-between";
   const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+
+  const toggleMenuHandler = () => {
+    setIsMenueToggled(!isMenueToggled);
+  };
+
+  const selectPage = (value: SelectedPage) => {
+    selectPageHandler(value);
+  };
+
   return (
     <nav>
       <div
@@ -30,41 +44,24 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
             {isAboveMediumScreens ? (
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
-                  <Link
-                    page="Home"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-                  <Link
-                    page="Benefits"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-                  <Link
-                    page="Our Classes"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
-                  <Link
-                    page="Contact Us"
-                    selectedPage={selectedPage}
-                    setSelectedPage={setSelectedPage}
-                  />
+                  {navDB.map((item, i) => (
+                    <Link
+                      key={i}
+                      page={item.page}
+                      selectedPage={selectedPage}
+                      selectPage={selectPage}
+                    />
+                  ))}
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <p>Sign In</p>
-                  <ActionButton setSelectedPage={setSelectedPage}>
+                  <ActionButton selectPage={selectPage}>
                     Become a Member
                   </ActionButton>
                 </div>
               </div>
             ) : (
-              <button
-                className="rounded-full bg-secondary-500 p-2"
-                onClick={() => setIsMenueToggled(!isMenueToggled)}
-              >
-                <Bars3Icon className="h-6 w-6 text-white" />
-              </button>
+              <Burger toggleMenuHandler={toggleMenuHandler} />
             )}
           </div>
         </div>
@@ -72,38 +69,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
       {/* Mobile menu modal */}
       {!isAboveMediumScreens && isMenueToggled && (
-        <div className="fixed bottom-0 right-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
-          {/* Close Icon */}
-          <div className="flex justify-end p-12">
-            <button onClick={() => setIsMenueToggled(!isMenueToggled)}>
-              <XMarkIcon className="h-6 w-6 text-gray-400" />
-            </button>
-          </div>
-
-          {/* Menu Items */}
-          <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            <Link
-              page="Home"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-            <Link
-              page="Benefits"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-            <Link
-              page="Our Classes"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-            <Link
-              page="Contact Us"
-              selectedPage={selectedPage}
-              setSelectedPage={setSelectedPage}
-            />
-          </div>
-        </div>
+        <Sidebar
+          data={navDB}
+          toggleMenuHandler={toggleMenuHandler}
+          selectedPage={selectedPage}
+          selectPage={selectPage}
+        />
       )}
     </nav>
   );
