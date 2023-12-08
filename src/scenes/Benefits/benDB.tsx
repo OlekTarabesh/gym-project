@@ -1,4 +1,4 @@
-import { BenefitTypes } from "@/shared/types";
+import { BenefitTypes } from "../../shared/types";
 
 import {
   HomeModernIcon,

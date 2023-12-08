@@ -5,7 +5,7 @@ import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import ContactForm from "./ContactForm";
 import ContactHeader from "./ContactHeader";
 
-import { SelectedPage } from "@/shared/types";
+import { SelectedPage } from "../../shared/types";
 
 type ContactUsPropsTypes = {
   setSelectedPage: (value: SelectedPage) => void;

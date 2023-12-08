@@ -7,7 +7,7 @@ import ClassesTitle from "./ClassesTitle";
 
 import { classes } from "./classDB";
 import { OurClassesPropsType } from "./types";
-import { SelectedPage } from "@/shared/types";
+import { SelectedPage } from "../../shared/types";
 
 const OurClasses: FC<OurClassesPropsType> = ({ setSelectedPage }) => {
   const selectPage = () => {

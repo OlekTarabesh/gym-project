@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 
-import Link from "../Link";
+import Link from "../components/Link";
 
 import { SidebarPropsType } from "./types";
 

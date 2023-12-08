@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
+import BenefitsPageGraphic from "../../assets/BenefitsPageGraphic.png";
 import TitleBenefits from "./components/TitleBenefits";
 import Description from "./components/Description";
-import ActionButton from "@/shared/ActionButton";
 
 import { GraphicsPropsTypes } from "./types";
+import ActionButton from "../../shared/ActionButton";
 
 const Graphics: FC<GraphicsPropsTypes> = ({ selectPage }) => {
   return (

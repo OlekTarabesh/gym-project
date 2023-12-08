@@ -1,16 +1,16 @@
 import { FC, useState } from "react";
 
-import Link from "./Link";
-import Sidebar from "./Sidebar";
+import Link from "./components/Link";
+import Sidebar from "./Sidebar/index";
 
 import Logo from "@/assets/Logo.png";
-import ActionButton from "@/shared/ActionButton";
-import useMediaQuery from "@/hooks/useMediaQuery";
-import Burger from "./Burger";
+import ActionButton from "../../shared/ActionButton";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import Burger from "./components/Burger";
 
 import { navDB } from "./navDB";
 import { NavbarPropsType } from "./types";
-import { SelectedPage } from "@/shared/types";
+import { SelectedPage } from "../../shared/types";
 
 const Navbar: FC<NavbarPropsType> = ({
   isTopOfPage,

@@ -1,4 +1,4 @@
-import { SelectedPage } from "@/shared/types";
+import { SelectedPage } from "../../../shared/types";
 
 export type BenefitPropsType = {
   title: string;

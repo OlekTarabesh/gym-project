@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 
-import HText from "@/shared/HText";
+import HText from "../../shared/HText";
 import Benefit from "./components/Benefit";
 import Graphics from "./Graphics";
 
-import { BenefitTypes, SelectedPage } from "@/shared/types";
-import { benDB } from "./benDB";
+import { BenefitTypes, SelectedPage } from "../../shared/types";
 import { BenefitsPropsTypes } from "./types";
+import { benDB } from "./benDB";
 
 const container = {
   hidden: {},

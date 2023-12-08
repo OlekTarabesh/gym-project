@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import HText from "@/shared/HText";
+import HText from "../../shared/HText";
 
 const ContactHeader = () => {
   return (

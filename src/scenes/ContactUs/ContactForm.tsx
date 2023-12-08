@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 
-const ContactForm = ({}) => {
+const ContactForm = () => {
   const inputStyles =
     "mb-3 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white";
   const {

@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 
-import useMediaQuery from "@/hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import HomePageText from "@/assets/HomePageText.png";
 import HomePageGraphic from "@/assets/HomePageGraphic.png";
 
-import { SelectedPage } from "@/shared/types";
 import { HomePropsType } from "./types";
+import { SelectedPage } from "../../shared/types";
 import Sponsors from "./Sponsors";
 import Actions from "./Actions";
 

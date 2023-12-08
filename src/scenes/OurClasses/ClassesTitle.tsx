@@ -1,4 +1,4 @@
-import HText from "@/shared/HText";
+import HText from "../../shared/HText";
 import { motion } from "framer-motion";
 
 const ClassesTitle = () => {

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
-import { BurgerPropsType } from "./types";
+import { BurgerPropsType } from "../types";
 
 const Burger: FC<BurgerPropsType> = ({ toggleMenuHandler }) => {
   return (

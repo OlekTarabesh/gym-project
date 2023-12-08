@@ -2,10 +2,10 @@ import { FC } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
 
-import ActionButton from "@/shared/ActionButton";
+import ActionButton from "../../shared/ActionButton";
 
-import { SelectedPage } from "@/shared/types";
 import { ActionsPropsType } from "./types";
+import { SelectedPage } from "../../shared/types";
 
 const Actions: FC<ActionsPropsType> = ({ selectPage, selectContactUs }) => {
   return (

@@ -1,8 +1,8 @@
 import { FC } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-import { LinkPropsType } from "./types";
-import { SelectedPage } from "@/shared/types";
+import { LinkPropsType } from "../types";
+import { SelectedPage } from "../../../shared/types";
 
 const Link: FC<LinkPropsType> = ({ page, selectedPage, selectPage }) => {
   const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
