@@ -10,3 +10,9 @@ export interface BenefitTypes {
   icon: JSX.Element;
   description: string;
 }
+
+export interface ClassTypes {
+  name: string;
+  description?: string;
+  image: string;
+}
