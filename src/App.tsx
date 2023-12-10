@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { SelectedPage } from "./shared/types";
-// import Navbar from "./scenes/Navbar";
+
+import Navbar from "./scenes/navbar";
 import Home from "./scenes/Home";
 import Benefits from "./scenes/Benefits";
 import OurClasses from "./scenes/OurClasses";
@@ -30,13 +31,11 @@ const App = () => {
 
   return (
     <div className="app bg-gray-20">
-      {/* <Navbar
+      <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
         selectPageHandler={selectPageHandler}
-      /> */}
-      <div>{selectedPage}</div>
-      <div>{isTopOfPage}</div>
+      />
       <Home selectPageHandler={selectPageHandler} />
       <Benefits selectPageHandler={selectPageHandler} />
       <OurClasses setSelectedPage={setSelectedPage} />

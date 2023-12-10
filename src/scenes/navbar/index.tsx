@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import Link from "./components/Link";
 import Sidebar from "./Sidebar/index";
 
-import Logo from "@/assets/Logo.png";
+import Logo from "../../assets/Logo.png";
 import ActionButton from "../../shared/ActionButton";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import Burger from "./components/Burger";
@@ -66,7 +66,6 @@ const Navbar: FC<NavbarPropsType> = ({
           </div>
         </div>
       </div>
-
       {/* Mobile menu modal */}
       {!isAboveMediumScreens && isMenueToggled && (
         <Sidebar
