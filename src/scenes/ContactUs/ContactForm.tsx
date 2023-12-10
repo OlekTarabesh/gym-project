@@ -32,7 +32,7 @@ const ContactForm = () => {
         target="_blank"
         rel="noreferrer"
         onSubmit={onSubmit}
-        action="https://formsubmit.co/petmailonly@gmail.com"
+        action="https://formsubmit.co/1d25a21957c206d43afd52978e0c66ca"
         method="POST"
       >
         <input
