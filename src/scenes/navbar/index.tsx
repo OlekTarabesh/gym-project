@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import Link from "./components/Link";
-import Sidebar from "./Sidebar/index";
+import Sidebar from "./sidebar/index";
 
 import Logo from "../../assets/Logo.png";
 import ActionButton from "../../shared/ActionButton";
