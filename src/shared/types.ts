@@ -21,7 +21,6 @@ export interface ClassTypes {
 
 export type ActionButtonPropsType = {
   children: ReactNode;
-  selectPage: (value: SelectedPage) => void;
 };
 
 export type HTextPropsType = {

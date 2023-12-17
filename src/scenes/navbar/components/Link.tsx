@@ -1,13 +1,15 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { LinkPropsType } from "../types";
 import { SelectedPage } from "../../../shared/types";
+import { GlobalContext } from "../../../contexts/global-context";
 
-const Link: FC<LinkPropsType> = ({ page, selectedPage, selectPage }) => {
+const Link: FC<LinkPropsType> = ({ page }) => {
+  const { setSelectedPage, selectedPage } = useContext(GlobalContext);
   const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
   const selectPageHandler = () => {
-    selectPage(lowerCasePage);
+    setSelectedPage(lowerCasePage);
   };
 
   return (

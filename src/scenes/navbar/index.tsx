@@ -10,13 +10,8 @@ import Burger from "./components/Burger";
 
 import { navDB } from "./navDB";
 import { NavbarPropsType } from "./types";
-import { SelectedPage } from "../../shared/types";
 
-const Navbar: FC<NavbarPropsType> = ({
-  isTopOfPage,
-  selectedPage,
-  selectPageHandler,
-}) => {
+const Navbar: FC<NavbarPropsType> = ({ isTopOfPage }) => {
   const [isMenueToggled, setIsMenueToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
@@ -25,10 +20,6 @@ const Navbar: FC<NavbarPropsType> = ({
 
   const toggleMenuHandler = () => {
     setIsMenueToggled(!isMenueToggled);
-  };
-
-  const selectPage = (value: SelectedPage) => {
-    selectPageHandler(value);
   };
 
   return (
@@ -45,19 +36,12 @@ const Navbar: FC<NavbarPropsType> = ({
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
                   {navDB.map((item, i) => (
-                    <Link
-                      key={i}
-                      page={item.page}
-                      selectedPage={selectedPage}
-                      selectPage={selectPage}
-                    />
+                    <Link key={i} page={item.page} />
                   ))}
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <p>Sign In</p>
-                  <ActionButton selectPage={selectPage}>
-                    Become a Member
-                  </ActionButton>
+                  <ActionButton>Become a Member</ActionButton>
                 </div>
               </div>
             ) : (
@@ -68,12 +52,7 @@ const Navbar: FC<NavbarPropsType> = ({
       </div>
       {/* Mobile menu modal */}
       {!isAboveMediumScreens && isMenueToggled && (
-        <Sidebar
-          data={navDB}
-          toggleMenuHandler={toggleMenuHandler}
-          selectedPage={selectedPage}
-          selectPage={selectPage}
-        />
+        <Sidebar data={navDB} toggleMenuHandler={toggleMenuHandler} />
       )}
     </nav>
   );

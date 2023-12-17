@@ -1,11 +1,13 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { ActionButtonPropsType, SelectedPage } from "./types";
+import { GlobalContext } from "../contexts/global-context";
 
-const ActionButton: FC<ActionButtonPropsType> = ({ children, selectPage }) => {
+const ActionButton: FC<ActionButtonPropsType> = ({ children }) => {
+  const { setSelectedPage } = useContext(GlobalContext);
   const selectPageHandler = () => {
-    selectPage(SelectedPage.ContactUs);
+    setSelectedPage(SelectedPage.ContactUs);
   };
   return (
     <AnchorLink

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -8,16 +8,15 @@ import HomePageGraphic from "@/assets/HomePageGraphic.png";
 import Sponsors from "./Sponsors";
 import Actions from "./Actions";
 import { SelectedPage } from "../../shared/types";
-import { HomePropsType } from "./types";
+import { GlobalContext } from "../../contexts/global-context";
 
-const Home: FC<HomePropsType> = ({ selectPageHandler }) => {
+const Home = () => {
+  const { setSelectedPage } = useContext(GlobalContext);
+
   const selectPage = () => {
-    selectPageHandler(SelectedPage.Home);
+    setSelectedPage(SelectedPage.Home);
   };
 
-  const selectContactUs = () => {
-    selectPageHandler(SelectedPage.ContactUs);
-  };
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
@@ -52,7 +51,7 @@ const Home: FC<HomePropsType> = ({ selectPageHandler }) => {
             </p>
           </motion.div>
           {/* Actions  */}
-          <Actions selectPage={selectPage} selectContactUs={selectContactUs} />
+          <Actions />
         </div>
         {/* image  */}
         <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import { SelectedPage } from "./shared/types";
 
@@ -8,14 +8,11 @@ import Benefits from "./scenes/Benefits";
 import OurClasses from "./scenes/OurClasses";
 import ContactUs from "./scenes/ContactUs";
 import Footer from "./scenes/Footer";
+import { GlobalContext } from "./contexts/global-context";
 
 const App = () => {
-  const [selectedPage, setSelectedPage] = useState(SelectedPage.Home);
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
-
-  const selectPageHandler = (value: SelectedPage) => {
-    setSelectedPage(value);
-  };
+  const { setSelectedPage } = useContext(GlobalContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,13 +28,9 @@ const App = () => {
 
   return (
     <div className="app bg-gray-20">
-      <Navbar
-        isTopOfPage={isTopOfPage}
-        selectedPage={selectedPage}
-        selectPageHandler={selectPageHandler}
-      />
-      <Home selectPageHandler={selectPageHandler} />
-      <Benefits selectPageHandler={selectPageHandler} />
+      <Navbar isTopOfPage={isTopOfPage} />
+      <Home />
+      <Benefits />
       <OurClasses setSelectedPage={setSelectedPage} />
       <ContactUs setSelectedPage={setSelectedPage} />
       <Footer />

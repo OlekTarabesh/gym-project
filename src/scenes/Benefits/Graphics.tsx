@@ -1,13 +1,10 @@
-import { FC } from "react";
-
 import BenefitsPageGraphic from "../../assets/BenefitsPageGraphic.png";
 import TitleBenefits from "./components/TitleBenefits";
 import Description from "./components/Description";
 
-import { GraphicsPropsTypes } from "./types";
 import ActionButton from "../../shared/ActionButton";
 
-const Graphics: FC<GraphicsPropsTypes> = ({ selectPage }) => {
+const Graphics = () => {
   return (
     <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
       {/* Graphic */}
@@ -25,7 +22,7 @@ const Graphics: FC<GraphicsPropsTypes> = ({ selectPage }) => {
         {/* Button  */}
         <div className="relative mt-16">
           <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
-            <ActionButton selectPage={selectPage}>Join Now</ActionButton>
+            <ActionButton>Join Now</ActionButton>
           </div>
         </div>
       </div>

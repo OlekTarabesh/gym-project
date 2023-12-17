@@ -1,13 +1,18 @@
-import { FC } from "react";
+import { useContext } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
 
 import ActionButton from "../../shared/ActionButton";
 
-import { ActionsPropsType } from "./types";
 import { SelectedPage } from "../../shared/types";
+import { GlobalContext } from "../../contexts/global-context";
 
-const Actions: FC<ActionsPropsType> = ({ selectPage, selectContactUs }) => {
+const Actions = () => {
+  const { setSelectedPage } = useContext(GlobalContext);
+
+  const selectContactUs = () => {
+    setSelectedPage(SelectedPage.ContactUs);
+  };
   return (
     <motion.div
       className="mt-8 flex items-center gap-8 "
@@ -20,7 +25,7 @@ const Actions: FC<ActionsPropsType> = ({ selectPage, selectContactUs }) => {
         visible: { opacity: 1, x: 0 },
       }}
     >
-      <ActionButton selectPage={selectPage}>Join Now</ActionButton>
+      <ActionButton>Join Now</ActionButton>
       <AnchorLink
         className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
         onClick={selectContactUs}

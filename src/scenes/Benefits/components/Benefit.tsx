@@ -1,23 +1,20 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { BenefitPropsType } from "./types";
 import { SelectedPage } from "../../../shared/types";
+import { GlobalContext } from "../../../contexts/global-context";
 
 const childVariant = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { opacity: 1, scale: 1 },
 };
 
-const Benefit: FC<BenefitPropsType> = ({
-  icon,
-  title,
-  description,
-  selectPageHandler,
-}) => {
+const Benefit: FC<BenefitPropsType> = ({ icon, title, description }) => {
+  const { setSelectedPage } = useContext(GlobalContext);
   const selectPage = () => {
-    selectPageHandler(SelectedPage.ContactUs);
+    setSelectedPage(SelectedPage.ContactUs);
   };
   return (
     <motion.div

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 
 import HText from "../../shared/HText";
@@ -6,8 +6,8 @@ import Benefit from "./components/Benefit";
 import Graphics from "./Graphics";
 
 import { BenefitTypes, SelectedPage } from "../../shared/types";
-import { BenefitsPropsTypes } from "./types";
 import { benDB } from "./benDB";
+import { GlobalContext } from "../../contexts/global-context";
 
 const container = {
   hidden: {},
@@ -18,9 +18,10 @@ const container = {
   },
 };
 
-const Benefits: FC<BenefitsPropsTypes> = ({ selectPageHandler }) => {
+const Benefits = () => {
+  const { setSelectedPage } = useContext(GlobalContext);
   const selectPage = () => {
-    selectPageHandler(SelectedPage.Benefits);
+    setSelectedPage(SelectedPage.Benefits);
   };
   return (
     <section id="benefits" className="mx-auto min-h-full w-5/6 py-20">
@@ -58,12 +59,11 @@ const Benefits: FC<BenefitsPropsTypes> = ({ selectPageHandler }) => {
               icon={benefit.icon}
               title={benefit.title}
               description={benefit.description}
-              selectPageHandler={selectPageHandler}
             />
           ))}
         </motion.div>
         {/* Graphic And Description  */}
-        <Graphics selectPage={selectPage} />
+        <Graphics />
       </motion.div>
     </section>
   );
