@@ -9,6 +9,7 @@ const Link: FC<LinkPropsType> = ({ page, selectedPage, selectPage }) => {
   const selectPageHandler = () => {
     selectPage(lowerCasePage);
   };
+
   return (
     <AnchorLink
       href={`#${lowerCasePage}`}

@@ -5,10 +5,10 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import HomePageText from "@/assets/HomePageText.png";
 import HomePageGraphic from "@/assets/HomePageGraphic.png";
 
-import { HomePropsType } from "./types";
-import { SelectedPage } from "../../shared/types";
 import Sponsors from "./Sponsors";
 import Actions from "./Actions";
+import { SelectedPage } from "../../shared/types";
+import { HomePropsType } from "./types";
 
 const Home: FC<HomePropsType> = ({ selectPageHandler }) => {
   const selectPage = () => {
